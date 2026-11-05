@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- admin/index.html - PAINEL ADMINISTRATIVO
+     Tela de login + gestão de imóveis, corretores e dados da empresa. Todo o conteúdo é
+     montado por admin/admin.js dentro de <div id="app">. Não há link para esta página no
+     site público (acesso só digitando o endereço /admin/). Os caminhos dos arquivos usam
+     "../" porque esta página está dentro da pasta admin. -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- noindex: pede ao Google para não listar o painel nas buscas. -->
+<meta name="robots" content="noindex">
+<title>Painel administrativo | André Pacheco Negócios Imobiliários</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Visual: style.css (cores, campos, botões, compartilhado com o site) + admin.css (layout do painel). -->
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body class="adm">
+<!-- Aqui o admin.js desenha o login ou o painel. -->
+<div id="app"></div>
+<!-- Aviso temporário (salvo, erro...). -->
+<div id="toast"></div>
+<!-- Mesmo config.js e mock.js do site: API_URL vazio = modo demonstração. admin.js vem por último. -->
+<script src="../js/config.js"></script>
+<script src="../js/mock.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

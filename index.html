@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- index.html - PÁGINA INICIAL
+     Página do site público. Topo, menu e rodapé NÃO estão escritos aqui: o js/app.js
+     os desenha em <div id="hdr"> e <div id="ftr">. Veja o LEIA-ME.md (seção 3). -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>André Pacheco Negócios Imobiliários</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonte Quicksand (Google Fonts). Para trocar: mude este link e o font-family em css/style.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Todo o visual do site (cores e instruções no topo do arquivo). -->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<!-- class="home": o app.js usa esta classe para saber que está na página inicial e rodar a função home() (preenche os blocos abaixo). -->
+<body class="home">
+<!-- Topo e menu: preenchido por layout() em js/app.js. -->
+<div id="hdr"></div>
+<main>
+<!-- BANNER: título + botões de contato. O fundo (foto ou degradê) é definido em css/style.css (.hero). -->
+<section class="hero">
+  <h1>Encontre o seu lar perfeito</h1>
+  <!-- Botões de Instagram e WhatsApp: preenchidos pelo app.js com os dados da empresa. -->
+<div class="pills" id="pills"></div>
+</section>
+
+<!-- BUSCA: ao enviar, o app.js lê os campos pelo atributo name (ref, aq, tp, vmin, vmax, loc)
+     e abre imoveis.html com os filtros na URL. Os VALORES das opções precisam bater com os dados
+     da API: aquisicao = compra | aluguel; tipo = casa | terreno | apartamento. A lista "Cidade e bairros"
+     (id fLoc) é montada pelo app.js a partir dos imóveis existentes. -->
+<form class="busca" id="busca">
+  <div class="rf"><button type="button" id="refBtn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg> Referência</button></div>
+  <div class="cmp">
+    <div id="refBox" hidden><label for="ref">Referência</label><input id="ref" name="ref" placeholder="Código do imóvel"></div>
+    <div><label for="aq">Negócio</label><select id="aq" name="aq"><option value="">Selecione</option><option value="compra">Comprar</option><option value="aluguel">Alugar</option></select></div>
+    <div><label for="tp">Tipo do imóvel</label><select id="tp" name="tp"><option value="">Selecione</option><option value="casa">Casa</option><option value="terreno">Terreno</option><option value="apartamento">Apartamento</option></select></div>
+    <div><label for="vmin">Valor mínimo</label><input id="vmin" name="vmin" inputmode="numeric" placeholder="R$ 0,00"></div>
+    <div><label for="vmax">Valor máximo</label><input id="vmax" name="vmax" inputmode="numeric" placeholder="R$ 0,00"></div>
+    <div><label for="fLoc">Cidade e bairros</label><select id="fLoc" name="loc"><option value="">Selecione</option></select></div>
+    <button class="go" type="submit">Pesquisar</button>
+  </div>
+  <!-- "Últimas pesquisas": chips gerados pelo app.js (guardados no navegador do visitante). -->
+<div class="ult" id="ult"></div>
+</form>
+
+<!-- DESTAQUES: os 6 primeiros imóveis da API, desenhados por card() em js/app.js. -->
+<section class="s"><div class="wrap">
+  <h2 class="t">Imóveis em destaque</h2>
+  <div class="grid" id="dest"></div>
+</div></section>
+
+<!-- QUEM SOMOS: missão, visão e valores (vêm de "Dados da empresa" no painel). -->
+<section class="s" style="background:#fafafa"><div class="wrap">
+  <h2 class="t">Quem somos</h2>
+  <div class="tri" id="sobre"></div>
+</div></section>
+
+<!-- TERRENO + CONSTRUÇÃO: texto e botão preenchidos pelo app.js (contato do bloco "Terreno + construção" dos dados globais). -->
+<section class="terr" id="terr"></section>
+
+<section class="s"><div class="wrap">
+  <!-- CORRETORES: lista vinda de GET /corretores. -->
+<h2 class="t">Nossos corretores</h2>
+  <div class="grid" id="cors"></div>
+</div></section>
+</main>
+<!-- Rodapé, botão do WhatsApp e balão: preenchidos por layout() em js/app.js. O chatbot (js/chat.js) é carregado depois, pelo app.js. -->
+<div id="ftr"></div>
+
+<!-- SCRIPTS: a ORDEM IMPORTA. config.js (endereço da API) -> mock.js (dados de exemplo)
+     -> [script desta página, se houver] -> app.js (núcleo; roda por último e chama a lógica da página). -->
+<script src="js/config.js"></script>
+<script src="js/mock.js"></script>
+<!-- Tradução da interface (PT/EN/ES): js/i18n.js. Deve vir antes do app.js. -->
+<script src="js/i18n.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

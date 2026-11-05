@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- imoveis.html - LISTAGEM COM FILTROS
+     Página do site público. Topo, menu e rodapé NÃO estão escritos aqui: o js/app.js
+     os desenha em <div id="hdr"> e <div id="ftr">. Veja o LEIA-ME.md (seção 3). -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Imóveis | André Pacheco Negócios Imobiliários</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonte Quicksand (Google Fonts). Para trocar: mude este link e o font-family em css/style.css. -->
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Todo o visual do site (cores e instruções no topo do arquivo). -->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- Topo e menu: preenchido por layout() em js/app.js. -->
+<div id="hdr"></div>
+<main>
+<!-- Faixa de título. O texto "N imóveis encontrados" (id cnt) é escrito por js/imoveis.js. -->
+<div class="pghead"><div class="wrap"><h1>Imóveis</h1><p id="cnt">Carregando...</p></div></div>
+
+<!-- FILTROS: lidos e preenchidos por js/imoveis.js (campos por name: ref, aq, tp, vmin, vmax, loc).
+     Os mesmos parâmetros chegam pela URL (?aquisicao=&tipo=&valorMin=&valorMax=&cidade=&bairro=&ref=). -->
+<form class="busca flt" id="flt">
+  <div class="cmp">
+    <div><label for="ref">Referência</label><input id="ref" name="ref" placeholder="Código do imóvel"></div>
+    <div><label for="aq">Negócio</label><select id="aq" name="aq"><option value="">Selecione</option><option value="compra">Comprar</option><option value="aluguel">Alugar</option></select></div>
+    <div><label for="tp">Tipo do imóvel</label><select id="tp" name="tp"><option value="">Selecione</option><option value="casa">Casa</option><option value="terreno">Terreno</option><option value="apartamento">Apartamento</option></select></div>
+    <div><label for="vmin">Valor mínimo</label><input id="vmin" name="vmin" inputmode="numeric" placeholder="R$ 0,00"></div>
+    <div><label for="vmax">Valor máximo</label><input id="vmax" name="vmax" inputmode="numeric" placeholder="R$ 0,00"></div>
+    <div><label for="loc">Cidade e bairros</label><select id="loc" name="loc"><option value="">Selecione</option></select></div>
+    <div class="act"><button class="go" type="submit">Pesquisar</button><button class="lk" type="button" id="lmp">Limpar filtros</button></div>
+  </div>
+</form>
+
+<section class="wrap" style="padding-bottom:70px">
+  <div class="bar2">
+    <span></span>
+    <div><label for="ord" style="display:inline;margin-right:8px">Ordenar por</label>
+      <select id="ord"><option value="">Padrão</option><option value="min">Menor valor</option><option value="max">Maior valor</option></select></div>
+  </div>
+  <!-- RESULTADOS: cards desenhados por js/imoveis.js. O botão "Ver mais" (id mais) mostra os próximos 9. -->
+<div class="grid" id="res"></div>
+  <button class="go mais" id="mais" type="button" hidden>Ver mais imóveis</button>
+</section>
+</main>
+<!-- Rodapé, botão do WhatsApp e balão: preenchidos por layout() em js/app.js. O chatbot (js/chat.js) é carregado depois, pelo app.js. -->
+<div id="ftr"></div>
+
+<!-- SCRIPTS: a ORDEM IMPORTA. config.js (endereço da API) -> mock.js (dados de exemplo)
+     -> [script desta página, se houver] -> app.js (núcleo; roda por último e chama a lógica da página). -->
+<script src="js/config.js"></script>
+<script src="js/mock.js"></script>
+<!-- Tradução da interface (PT/EN/ES): js/i18n.js. Deve vir antes do app.js. -->
+<script src="js/i18n.js"></script>
+<!-- Lógica desta página (define window.onAP, chamada pelo app.js). -->
+<script src="js/imoveis.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
