@@ -52,7 +52,7 @@ window.onAP = async i => {
     const t = i.terrenoConstrucao || {}, num = t.whatsapp || i.whatsapp;
     $("#sub").textContent = "Do terreno à sua casa";
     box.innerHTML = `<div class="two"><div><h2>Seu terreno, a sua casa</h2><p>${esc(t.texto)}</p><a class="go" style="display:inline-block" href="${wa(num, "Olá! Tenho um terreno e quero conversar sobre construção.")}" target="_blank" rel="noopener">Falar no WhatsApp</a></div>
-      <form class="fm" id="fm"><h2>Qual Terreno Ideal para Realizar seu Sonho</h2><div><label for="n">Nome</label><input id="n" required></div><div><label for="lo">Onde fica o terreno?</label><input id="lo" required></div><div><label for="m">Mensagem</label><textarea id="m" rows="4"></textarea></div><button class="go" type="submit">Enviar pelo WhatsApp</button></form></div>`;
+      <form class="fm" id="fm"><h2>Qual Terreno Ideal para Realizar seu Sonho</h2><div><label for="n">Nome</label><input id="n" required></div><div><label for="lo">Algum Endereço em Específico?</label><input id="lo" required></div><div><label for="m">Mensagem</label><textarea id="m" rows="4"></textarea></div><button class="go" type="submit">Enviar pelo WhatsApp</button></form></div>`;
     $("#fm").onsubmit = e => { e.preventDefault(); abrir(num, `Olá! Meu nome é ${$("#n").value}. Tenho um terreno em ${$("#lo").value} e quero conversar sobre construção. ${$("#m").value}`); };
   }
 
