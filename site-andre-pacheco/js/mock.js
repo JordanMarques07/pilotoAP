@@ -29,13 +29,13 @@
    desta, a cópia antiga é ignorada e os dados abaixo voltam a valer.
    ===================================================================== */
 window.MOCK = {
-  "versao": "2026-10-31-dados-reais",
+  "versao": "2026-11-10-whatsapp",
   "inst": {
     "nome": "André Pacheco Negócios Imobiliários",
     "cnpj": "62.537.875/0001-11",
     "creci": "54761-J",
     "instagram": "@imobiliaria.andrepacheco",
-    "whatsapp": "5519992248572",
+    "whatsapp": "5519989112604",
     "endereco": "Rua XV de Novembro, 1137 – Centro – Capivari/SP",
     "missao": "",
     "bannerFundo": "",
@@ -50,7 +50,7 @@ window.MOCK = {
     ],
     "terrenoConstrucao": {
       "texto": "Quer construir? Oferecemos soluções para quem deseja construir por meio do financiamento Caixa de terreno e construção.",
-      "whatsapp": "5519992248572"
+      "whatsapp": "5519989112604"
     }
   },
   "corretores": [
